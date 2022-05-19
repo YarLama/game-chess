@@ -31,10 +31,10 @@ $boardHeight: calc($cellHeight * 8);
     align-items: center;
 }
 
-.black-cell {
+.black {
     background-color: rgb(83, 69, 38);
 }
 
-.white-cell {
+.white {
     background-color: rgb(160, 145, 112);
 }

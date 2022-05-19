@@ -52,9 +52,10 @@ module.exports = {
             },
             {
                 test: /\.(jpg|jpeg|png|svg)/,
-                use: [
-                    "file-loader"
-                ]
+                loader: "file-loader",
+                // options: {
+                //     name: '[path][name].[ext]'
+                // }
             },
             {
                 test: /\.m?js$/,
