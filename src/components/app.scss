@@ -1,7 +1,7 @@
 $cellWidth: 64px;
 $cellHeight: 64px;
-$figureWidth: calc($cellWidth * 0.85);
-$figureHeight: calc($cellHeight * 0.85);
+$figureWidth: calc($cellWidth * 0.95);
+$figureHeight: calc($cellHeight * 0.95);
 $boardWidth: calc($cellWidth * 8);
 $boardHeight: calc($cellHeight * 8);
 
@@ -37,12 +37,25 @@ $boardHeight: calc($cellHeight * 8);
         height: $figureHeight;
         position: relative;
     }
+
+    &.black {
+        background-color: rgb(42, 115, 124);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    
+    &.white {
+        background-color: rgb(151, 217, 226);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &.selected {
+        filter: grayscale(0.5) opacity(0.9);
+    }
 }
 
-.black {
-    background-color: rgb(83, 69, 38);
-}
-
-.white {
-    background-color: rgb(160, 145, 112);
-}

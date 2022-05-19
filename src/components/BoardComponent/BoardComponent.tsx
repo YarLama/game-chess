@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Board } from '../../models/Board';
+import { Cell } from '../../models/Cell';
 import CellComponent from '../CellComponent/CellComponent';
 
 interface BoardProps {
@@ -8,6 +9,11 @@ interface BoardProps {
 }
 
 const BoardComponent: React.FC<BoardProps> = ({board , setBoard}) => {
+    const [selectedCell, setSelectedCell] = useState<Cell | null>(null)
+
+    function selectHandler(cell: Cell) {
+        setSelectedCell(cell);
+    }
 
     return (
         <div className="board">
@@ -16,6 +22,8 @@ const BoardComponent: React.FC<BoardProps> = ({board , setBoard}) => {
                     {row.map(cell => 
                         <CellComponent 
                             cell={cell}
+                            select={selectHandler}
+                            selected={cell.x === selectedCell?.x && cell.y === selectedCell?.y}
                             key={cell.id}
                         />
                     )}
