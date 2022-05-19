@@ -1,12 +1,15 @@
-import React from 'react'
 import './app.scss'
+import React from 'react'
+import BoardComponent from './BoardComponent/BoardComponent';
+
 
 const App: React.FC = () => {
 
     return (
-        <div>
-            start project game-chess
+        <div className="app">
+            <BoardComponent />
         </div>
+        
     );
 };
 

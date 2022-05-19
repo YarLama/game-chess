@@ -1,3 +1,40 @@
-div {
-    background-color: red;
+$cellWidth: 64px;
+$cellHeight: 64px;
+$boardWidth: calc($cellWidth * 8);
+$boardHeight: calc($cellHeight * 8);
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    width: $boardWidth;
+    height: $boardHeight;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+}
+
+.cell {
+    width: $cellWidth;
+    height: $cellHeight;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.black-cell {
+    background-color: rgb(83, 69, 38);
+}
+
+.white-cell {
+    background-color: rgb(160, 145, 112);
 }
