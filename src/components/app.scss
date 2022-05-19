@@ -1,5 +1,7 @@
 $cellWidth: 64px;
 $cellHeight: 64px;
+$figureWidth: calc($cellWidth * 0.85);
+$figureHeight: calc($cellHeight * 0.85);
 $boardWidth: calc($cellWidth * 8);
 $boardHeight: calc($cellHeight * 8);
 
@@ -29,6 +31,12 @@ $boardHeight: calc($cellHeight * 8);
     display: flex;
     justify-content: center;
     align-items: center;
+
+    img {
+        width: $figureWidth;
+        height: $figureHeight;
+        position: relative;
+    }
 }
 
 .black {
