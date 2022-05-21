@@ -28,6 +28,22 @@ export class Board {
         return this.cells[y][x];
     }
 
+    public highLightCells(selectedCell: Cell | null) {
+        for (let i = 0; i < this.cells.length; i++) {
+            const row = this.cells[i];
+            for (let j = 0; j < row.length; j++) {
+                const target = row[j];
+                target.available = !!selectedCell?.figure?.canMove(target);
+            }
+        }
+    }
+
+    public getCopyBoard(): Board {
+        const newBoard = new Board();
+        newBoard.cells = this.cells;
+        return newBoard;
+    }
+
     private _addQueens() {
         new Queen(Colors.BLACK, this.getCell(3,0));
         new Queen(Colors.WHITE, this.getCell(3,7));

@@ -20,11 +20,17 @@ const App: React.FC = () => {
 
     return (
         <div className="app">
-            <BoardComponent 
+            <div className="tooltip">
+                <button onClick={restart}>Restart</button>
+            </div>
+            <div className="content">
+                <BoardComponent 
                 board={board}
                 setBoard={setBoard}
-            />
+                />
+            </div>
         </div>
+        
         
     );
 };

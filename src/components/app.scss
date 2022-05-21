@@ -5,12 +5,18 @@ $figureHeight: calc($cellHeight * 0.95);
 $boardWidth: calc($cellWidth * 8);
 $boardHeight: calc($cellHeight * 8);
 
+@mixin selectBlock {
+    background-color: rgb(73, 182, 182);
+    opacity: 0.8;
+    outline: 1px solid black;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
-.app {
+.content {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -39,23 +45,37 @@ $boardHeight: calc($cellHeight * 8);
     }
 
     &.black {
-        background-color: rgb(42, 115, 124);
+        background-color: rgb(46, 106, 114);
 
         &:hover {
-            opacity: 0.8;
+            @include selectBlock()
         }
     }
     
     &.white {
-        background-color: rgb(151, 217, 226);
+        background-color: rgb(187, 217, 221);
 
         &:hover {
-            opacity: 0.8;
+            @include selectBlock()
         }
     }
 
     &.selected {
-        filter: grayscale(0.5) opacity(0.9);
+        @include selectBlock()
     }
+
+    &.available_figure {
+        background-color: rgb(219, 115, 84);
+        outline: 1px solid black;
+    }
+
+    .available {
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        background-color: rgb(75, 175, 189);
+    }
+
+     
 }
 
