@@ -14,7 +14,7 @@ const App: React.FC = () => {
     function restart() {
         const newBoard = new Board();
         newBoard.initCells();
-        newBoard.addFigures()
+        newBoard.addFigures();
         setBoard(newBoard);
     }
 
@@ -25,8 +25,8 @@ const App: React.FC = () => {
             </div>
             <div className="content">
                 <BoardComponent 
-                board={board}
-                setBoard={setBoard}
+                    board={board}
+                    setBoard={setBoard}
                 />
             </div>
         </div>
