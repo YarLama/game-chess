@@ -37,6 +37,7 @@ $boardHeight: calc($cellHeight * 8);
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
 
     img {
         width: $figureWidth;

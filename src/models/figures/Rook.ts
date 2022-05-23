@@ -7,15 +7,16 @@ import whiteLogo from '../../assets/wr.png'
 
 export class Rook extends Figure {
 
-	constructor(color: Colors, cell: Cell) {
+    constructor(color: Colors, cell: Cell) {
         super(color, cell);
         this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
         this.name = FigureNames.ROOK;
-	}
+    }
 
-	canMove(target: Cell): boolean {
+    canMove(target: Cell): boolean {
         if(!super.canMove(target)) return false;
-        return true;
+        if(this.cell.isEmptyVertical(target) || this.cell.isEmptyHorizontal(target)) return true;
+        return false;
     }  
 
 }
