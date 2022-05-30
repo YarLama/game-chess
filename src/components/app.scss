@@ -16,6 +16,15 @@ $boardHeight: calc($cellHeight * 8);
     padding: 0;
 }
 
+.tooltip {
+    button {
+        padding: 16px;
+        margin: 10px;
+        background-color: white;
+        border: 1px solid black;
+    }
+}
+
 .content {
     height: 100vh;
     display: flex;
