@@ -4,6 +4,10 @@ $figureWidth: calc($cellWidth * 0.95);
 $figureHeight: calc($cellHeight * 0.95);
 $boardWidth: calc($cellWidth * 8);
 $boardHeight: calc($cellHeight * 8);
+$backgroundImage1: image-url('/./src/assets/bk.png');
+$backgroundImage2: url('~assets/bk.png');
+$backgroundImage3: red;
+$backgroundImage4: url('~src/assets/bg01.jpg');
 
 @mixin selectBlock {
     background-color: rgb(73, 182, 182);
@@ -17,6 +21,9 @@ $boardHeight: calc($cellHeight * 8);
 }
 
 .tooltip {
+    display: flex;
+    align-items: center;
+
     button {
         padding: 16px;
         margin: 10px;
@@ -30,6 +37,7 @@ $boardHeight: calc($cellHeight * 8);
     display: flex;
     justify-content: center;
     align-items: center;
+    background: $backgroundImage4;
 }
 
 .board {
@@ -37,7 +45,7 @@ $boardHeight: calc($cellHeight * 8);
     height: $boardHeight;
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid black;
+    border: 8px solid black;
 }
 
 .cell {

@@ -1,10 +1,9 @@
-import './app.scss'
+import './app.scss';
 import React, { useEffect, useState } from 'react'
 import BoardComponent from './BoardComponent/BoardComponent';
 import { Board } from '../models/Board';
 import { Player } from '../models/Player';
 import { Colors } from '../models/Colors';
-
 
 const App: React.FC = () => {
     const [board, setBoard] = useState(new Board())
@@ -32,10 +31,10 @@ const App: React.FC = () => {
         <div className="app">
             <div className="tooltip">
                 <button onClick={restart}>Restart</button>
+                <h3>{`Сейчас ходит: ${currentPlayer?.color.toUpperCase()}`}</h3>
             </div>
             <div className="content">
                 <div>
-                    <h3>{`Сейчас ходит: ${currentPlayer?.color.toUpperCase()}`}</h3>
                     <BoardComponent 
                         board={board}
                         setBoard={setBoard}

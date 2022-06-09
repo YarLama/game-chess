@@ -5,6 +5,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const PATHS = {
     root: path.resolve(__dirname, '..'),
     src: path.resolve(__dirname, '../src'),
+    assets: path.resolve(__dirname, '../src/assets'),
     dist: path.resolve(__dirname, '../dist'),
     public: path.resolve(__dirname, '../public')
 }
@@ -21,7 +22,7 @@ module.exports = {
     output: {
         filename: "[name].[fullhash].js",
         path: PATHS.dist,
-        publicPath: '/',
+        assetModuleFilename: 'static/assets/[name].[hash].[ext]'
     },
     devServer: DEV_SERVER,
     plugins: [
@@ -33,7 +34,11 @@ module.exports = {
         new CleanWebpackPlugin,
     ],
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', ',jsx', '.css', '.scss']
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.css', '.scss'],
+        alias: {
+            assets: PATHS.assets,
+            src: PATHS.src
+        }
     },
     module: {
         rules: [
@@ -43,16 +48,24 @@ module.exports = {
                 exclude: '/node_modules/'
             },
             {
-                test: /\.scss$/,
+                test: /\.s[ac]ss$/i,
                 use: [
                     { loader: "style-loader"},
                     { loader: "css-loader"},
-                    { loader: "sass-loader"},
+                    { loader: "resolve-url-loader", options: {
+                        debug: true,
+                    }},
+                    { loader: "sass-loader", options: {
+                        sourceMap: true,
+                    }},
                 ],
             },
             {
-                test: /\.(jpg|jpeg|png|svg)/,
-                loader: "file-loader"
+                //In webpack v5 doesnt need file-loader/url-loader
+                test: /\.(png|jpe?g|gif)$/i,
+                exclude: /node_modules/,
+                type: 'asset/resource',
+                
             },
             {
                 test: /\.m?js$/,
