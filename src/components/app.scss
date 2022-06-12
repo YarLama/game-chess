@@ -1,13 +1,10 @@
-$cellWidth: 64px;
-$cellHeight: 64px;
+$cellWidth: 96px;
+$cellHeight: 96px;
 $figureWidth: calc($cellWidth * 0.95);
 $figureHeight: calc($cellHeight * 0.95);
 $boardWidth: calc($cellWidth * 8);
 $boardHeight: calc($cellHeight * 8);
-$backgroundImage1: image-url('/./src/assets/bk.png');
-$backgroundImage2: url('~assets/bk.png');
-$backgroundImage3: red;
-$backgroundImage4: url('~src/assets/bg01.jpg');
+$backgroundImage1: url('~src/assets/bg01.jpg');
 
 @mixin selectBlock {
     background-color: rgb(73, 182, 182);
@@ -20,24 +17,30 @@ $backgroundImage4: url('~src/assets/bg01.jpg');
     padding: 0;
 }
 
+body {
+    background: $backgroundImage1 no-repeat;
+    background-size: 100%;
+}
+
 .tooltip {
     display: flex;
     align-items: center;
+    height: 10vh;
 
     button {
         padding: 16px;
         margin: 10px;
         background-color: white;
         border: 1px solid black;
+        cursor: pointer;
     }
 }
 
 .content {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $backgroundImage4;
 }
 
 .board {
@@ -45,7 +48,7 @@ $backgroundImage4: url('~src/assets/bg01.jpg');
     height: $boardHeight;
     display: flex;
     flex-wrap: wrap;
-    border: 8px solid black;
+    border: 12px solid rgb(65, 43, 14);
 }
 
 .cell {
