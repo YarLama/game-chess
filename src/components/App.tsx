@@ -4,6 +4,7 @@ import BoardComponent from './BoardComponent/BoardComponent';
 import { Board } from '../models/Board';
 import { Player } from '../models/Player';
 import { Colors } from '../models/Colors';
+import LostFigures from './LostFigures/LostFigures';
 
 const App: React.FC = () => {
     const [board, setBoard] = useState(new Board())
@@ -34,6 +35,7 @@ const App: React.FC = () => {
                 <h3>{`Сейчас ходит: ${currentPlayer?.color.toUpperCase()}`}</h3>
             </div>
             <div className="content">
+                
                 <div>
                     <BoardComponent 
                         board={board}
@@ -42,7 +44,18 @@ const App: React.FC = () => {
                         swapPlayer={swapPlayer}
                     />
                 </div>
+                <div>
+                    <LostFigures 
+                        title='Белые фигуры'
+                        figures={board.lostWhiteFigures}
+                    />
+                    <LostFigures 
+                        title='Черные фигуры'
+                        figures={board.lostBlackFigures}
+                    />
+                </div>
             </div>
+            
         </div>
         
         
