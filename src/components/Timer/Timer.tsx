@@ -9,13 +9,17 @@ interface TimerProps {
 
 const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
 
-    const [blackTime, setBlackTime] = useState<number>(300);
-    const [whiteTime, setWhiteTime] = useState<number>(300);
+    const [blackTime, setBlackTime] = useState<number>(5);
+    const [whiteTime, setWhiteTime] = useState<number>(5);
     const timer = useRef<null | ReturnType<typeof setInterval>>(null);
 
     useEffect(() => {
         startTimer();
     }, [currentPlayer])
+
+    useEffect(() => {
+        if (blackTime === 0 || whiteTime === 0) winGame(currentPlayer.color === Colors.WHITE ? Colors.BLACK : Colors.WHITE);
+    }, [blackTime, whiteTime])
 
     function startTimer() {
         if(timer.current) {
@@ -26,8 +30,8 @@ const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
     }
 
     function handleRestart() {
-        setBlackTime(300);
-        setWhiteTime(300);
+        setBlackTime(5);
+        setWhiteTime(5);
         restart();
     }
     
@@ -36,7 +40,12 @@ const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
     }
 
     function decrementWhiteTimer() {
-        setWhiteTime(prev => prev - 1);
+        setWhiteTime(prev => prev - 1);   
+    }
+
+    function winGame(color : Colors) {
+        console.log(`${color} выйграл`);
+        handleRestart();
     }
 
     return (
