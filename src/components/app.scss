@@ -26,6 +26,7 @@ body {
 .tooltip {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 10vh;
 
     button {
@@ -34,6 +35,10 @@ body {
         background-color: white;
         border: 1px solid black;
         cursor: pointer;
+    }
+
+    .tooltip-timer {
+        padding-left: 25px;
     }
 }
 

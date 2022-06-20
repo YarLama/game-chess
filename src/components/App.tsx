@@ -5,6 +5,7 @@ import { Board } from '../models/Board';
 import { Player } from '../models/Player';
 import { Colors } from '../models/Colors';
 import LostFigures from './LostFigures/LostFigures';
+import Timer from './Timer/Timer';
 
 const App: React.FC = () => {
     const [board, setBoard] = useState(new Board())
@@ -31,11 +32,12 @@ const App: React.FC = () => {
     return (
         <div className="app">
             <div className="tooltip">
-                <button onClick={restart}>Restart</button>
-                <h3>{`Сейчас ходит: ${currentPlayer?.color.toUpperCase()}`}</h3>
+                <Timer 
+                    currentPlayer={currentPlayer}
+                    restart={restart}
+                />
             </div>
             <div className="content">
-                
                 <div>
                     <BoardComponent 
                         board={board}
